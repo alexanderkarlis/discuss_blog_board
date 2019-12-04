@@ -1,0 +1,50 @@
+<%= form_for @changeset, topic_path(@conn, :create), fn f -> %>
+    <div class="form-group">
+        <%= text_input f, :title, placeholder: "Title", class: "form-control" %>
+        <%= error_tag f, :title%>
+    </div>
+    <style>
+        .error-handler {
+        text-align: center;
+        text-transform: uppercase;
+        color: #4CAF50;
+        }
+    </style>
+    <%= submit "Save Topic", class: "btn btn-primary"%>
+<% end %>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style>
+                .alert {
+                padding: 20px;
+                background-color: gold;
+                color: white;
+                }
+
+                .closebtn {
+                margin-left: 15px;
+                color: white;
+                font-weight: bold;
+                float: right;
+                font-size: 22px;
+                line-height: 20px;
+                cursor: pointer;
+                transition: 0.3s;
+                }
+
+                .closebtn:hover {
+                color: black;
+                }
+            </style>
+    </head>
+<body>
+
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Yay!</strong> This is cool!
+</div>
+
+</body>
+</html>
