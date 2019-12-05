@@ -4,7 +4,7 @@ defmodule Discuss.TopicController do
   alias Discuss.Topic
 
   def index(conn, _params) do
-    topics = Repo.all(Topic) 
+    topics = Repo.all(Topic)
     render conn, "index.html", topics: topics
   end
 
@@ -18,11 +18,11 @@ defmodule Discuss.TopicController do
     changeset = Topic.changeset(%Topic{}, topic)
 
     case Repo.insert(changeset) do
-      {:ok, _topic} -> 
+      {:ok, _topic} ->
         conn
         |> put_flash(:info, "Topic Created!")
         |> redirect(to: topic_path(conn, :index))
-      {:error, changeset} -> 
+      {:error, changeset} ->
         render conn, "new.html", changeset: changeset
     end
   end
@@ -32,7 +32,7 @@ defmodule Discuss.TopicController do
     changeset = Topic.changeset(topic)
 
     render conn, "edit.html", changeset: changeset, topic: topic
-    
+
   end
 
   def update(conn, %{"id" => id, "topic" => topic}) do
@@ -40,7 +40,7 @@ defmodule Discuss.TopicController do
     changeset = Topic.changeset(old_topic, topic)
 
     case Repo.update(changeset) do
-      {:ok, _topic} -> 
+      {:ok, _topic} ->
         conn
         |> put_flash(:info, "Topic Successfully Updated!")
         |> redirect(to: topic_path(conn, :index))# Updated with success
@@ -56,5 +56,11 @@ defmodule Discuss.TopicController do
     conn
     |> put_flash(:info, "Topic Successfully Deleted!")
     |> redirect(to: topic_path(conn, :index))
+  end
+
+  @spec render_random_number(Plug.Conn.t(), any) :: any
+  def render_random_number(conn, _params) do
+
+    render conn, "random.html", random_number: :rand.uniform(200)
   end
 end

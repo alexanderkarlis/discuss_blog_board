@@ -39,7 +39,8 @@ defmodule Discuss.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:ueberauth, "~> 0.3"},
-     {:ueberauth_github, "~> 0.7"}]
+     {:ueberauth_github, "~> 0.7"},
+     {:httpoison, "~> 1.6"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
