@@ -8,6 +8,7 @@ defmodule Discuss.Plugs.SetUser do
     IO.puts "Set user plug loaded"
   end
 
+  @spec call(Plug.Conn.t(), any) :: Plug.Conn.t()
   def call(conn, _params) do
     user_id = get_session(conn, :user_id)
 

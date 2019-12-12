@@ -1,4 +1,4 @@
-<h1>Here's a random number!</h1>
+<h2>Here's a random number!</h2>
 <%= @random_number %>
 <div class="new-number-btn">
     <%= link to: topic_path(@conn, :render_random_number), class: "btn-small green" do %>
